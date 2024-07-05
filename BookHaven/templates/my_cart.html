@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cart.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message flash-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    <div class="container-fluid gradient-background">
+        <div class="navigation-buttons">
+            <a href="{{ url_for('home') }}" class="btn-nav"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ url_for('logout') }}" class="btn-nav"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ url_for('my_profile', username=current_user.username, user_id=current_user.user_id) }}" class="btn-nav"><i class="fas fa-user"></i> Profile</a>
+            <a href="{{ url_for('orders', username=current_user.username, user_id=current_user.user_id) }}" class="btn-nav"><i class="fas fa-box"></i> Orders</a>
+        </div>
+        <div class="cart-container">
+            <h1><i class="fas fa-shopping-cart"></i> My Cart</h1> 
+            {% if cart_items %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                            <tr>
+                                <td>{{ item.title }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>
+                                    <form action="{{ url_for('remove_from_cart', cart_id=item.cart_id) }}" method="post" class="remove-form">
+                                        <input type="submit" value="Remove" class="btn btn-danger btn-sm">
+                                    </form>
+                                    </td>
+                                    <td>
+                                    <a href="{{ url_for('book_details', book_id=item.book_id) }}" class="btn btn-primary btn-sm">View Details</a>
+                                    </td>
+                                    <td>
+                                    <button type="button" onclick="location.href='{{ url_for('place_order', book_id=item.book_id) }}'" class="btn btn-success btn-sm">Place Order</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Your cart is empty.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

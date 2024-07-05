@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_book.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="{{ url_for('admin') }}" class="navbar-brand"><i class="fas fa-cog"></i> Admin Panel</a>
+        </div>
+        <div class="navbar-center">
+            <!-- Navigation links -->
+            <a href="{{ url_for('home') }}" class="nav-item"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ url_for('admin_books') }}" class="nav-item active"><i class="fas fa-book"></i> Books</a>
+            <a href="{{ url_for('all_authors') }}" class="nav-item"><i class="fas fa-users"></i> Authors</a>
+            <a href="{{ url_for('all_genres') }}" class="nav-item"><i class="fas fa-bookmark"></i> Genres</a>
+            <a href="{{ url_for('all_publishers') }}" class="nav-item"><i class="fas fa-building"></i> Publishers</a>
+            <!-- Add Book link -->
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('logout') }}" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
+    
+    <div class="admin-books">
+        <h2><i class="fas fa-plus-circle"></i> Add Book</h2>
+        
+        <!-- Add Book Form -->
+        <div class="add-book-form">
+            <form method="POST" action="{{ url_for('add_book') }}" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                
+                <div class="form-group">
+                    <label for="title" class="form-control-label">Title</label>
+                    {{ form.title(class="form-control", id="title") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="author_id" class="form-control-label">Author ID</label>
+                    {{ form.author_id(class="form-control", id="author_id") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="isbn" class="form-control-label">ISBN</label>
+                    {{ form.isbn(class="form-control", id="isbn") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="publisher_id" class="form-control-label">Publisher ID</label>
+                    {{ form.publisher_id(class="form-control", id="publisher_id") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="publication_year" class="form-control-label">Publication Year</label>
+                    {{ form.publication_year(class="form-control", id="publication_year") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="genre_id" class="form-control-label">Genre ID</label>
+                    {{ form.genre_id(class="form-control", id="genre_id") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="summary" class="form-control-label">Summary</label>
+                    {{ form.summary(class="form-control", id="summary") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="language" class="form-control-label">Language</label>
+                    {{ form.language(class="form-control", id="language") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="price" class="form-control-label">Price</label>
+                    {{ form.price(class="form-control", id="price") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="stock" class="form-control-label">Stock</label>
+                    {{ form.stock(class="form-control", id="stock") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="cover_image" class="form-control-label">Cover Image</label>
+                    {{ form.cover_image(class="form-control-file", id="cover_image") }}
+                </div>
+                
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add Book</button>
+            </form>
+        </div>
+        
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li class="flash-message {% if 'error' in message|lower %}flash-error{% else %}flash-success{% endif %}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

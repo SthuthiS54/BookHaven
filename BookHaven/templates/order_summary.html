@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='orders.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <!-- Navbar -->
+    <div class="container-fluid gradient-background">
+        <div class="navigation-buttons">
+            <a href="{{ url_for('home') }}" class="btn-nav"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ url_for('logout') }}" class="btn-nav"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ url_for('my_profile', username=current_user.username, user_id=current_user.user_id) }}" class="btn-nav"><i class="fas fa-user"></i> Profile</a>
+            <a href="{{ url_for('orders', username=current_user.username, user_id=current_user.user_id) }}" class="btn-nav"><i class="fas fa-box"></i> Orders</a>
+        </div>
+        <div class="orders-container">
+            <h1><i class="fas fa-box"></i> My Orders</h1>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Transaction ID: {{ transaction_id }}</h5>
+                            <p class="card-text"><strong>Book Title:</strong> {{ order.title }}</p>
+                            <p class="card-text"><strong>Author:</strong> {{ order.author_name }}</p>
+                            <p class="card-text"><strong>Genre:</strong> {{ order.genre_name }}</p>
+                            <p class="card-text"><strong>Publisher:</strong> {{ order.publisher_name }}</p>
+                            <p class="card-text"><strong>Quantity:</strong> {{ order.quantity }}</p>
+                            <p class="card-text"><strong>Price:</strong> ${{ order.price }}</p>
+                            <p class="card-text"><strong>Total Amount:</strong> ${{ order.total_amount }}</p>
+                            <p class="card-text"><strong>Status:</strong> {{ order.status }}</p>
+                            <p class="card-text"><strong>Payment Method:</strong> {{ order.payment_method }}</p>
+                            <p class="card-text"><strong>Date Placed:</strong> {{ order.date_placed }}</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

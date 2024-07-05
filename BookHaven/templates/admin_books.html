@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_books.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li class="flash-message {% if 'error' in message|lower %}flash-error{% else %}flash-success{% endif %}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="{{ url_for('admin') }}" class="navbar-brand"><i class="fas fa-cog"></i> Admin Panel</a>
+        </div>
+        <div class="navbar-center">
+            <!-- Navigation links -->
+            <a href="{{ url_for('home') }}" class="nav-item"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ url_for('admin_books') }}" class="nav-item"><i class="fas fa-book"></i> Books</a>
+            <a href="{{ url_for('all_authors') }}" class="nav-item"><i class="fas fa-users"></i> Authors</a>
+            <a href="{{ url_for('all_genres') }}" class="nav-item"><i class="fas fa-bookmark"></i> Genres</a>
+            <a href="{{ url_for('all_publishers') }}" class="nav-item"><i class="fas fa-building"></i> Publishers</a>
+            <!-- Add Book link -->
+            <a href="{{ url_for('add_book') }}" class="nav-item"><i class="fas fa-plus-circle"></i> Add Book</a>
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('logout') }}" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
+    
+    <div class="admin-books">
+        <h2><i class="fas fa-book"></i> Admin - Books</h2>
+        
+        <!-- Display Books -->
+        <div class="books-list">
+            {% if books %}
+                {% for book in books %}
+                    <div class="book-item">
+                        <h3>{{ book.title }}</h3>
+                        <p><strong>Author:</strong> {{ book.author_name }}</p>
+                        <p><strong>Genre:</strong> {{ book.genre_name }}</p>
+                        <p><strong>Publisher:</strong> {{ book.publisher_name }}</p>
+                        <p><strong>Price:</strong> ${{ book.price }}</p>
+                        <p><strong>Stock:</strong> {{ book.stock }}</p>
+                        <a href="{{ url_for('edit_book', book_id = book.book_id) }}" class="btn-edit"><i class="fas fa-edit"></i> Edit Book Details</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No books available.</p>
+            {% endif %}
+            
+        </div>
+        
+        <!-- Flash Messages -->
+        
+    </div>
+</body>
+</html>

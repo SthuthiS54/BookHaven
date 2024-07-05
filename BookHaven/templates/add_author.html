@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Author</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_author.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+
+<!-- Navigation -->
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+      <ul class="flash-messages">
+          {% for category, message in messages %}
+              <li class="flash-message {% if 'error' in category %}flash-error{% else %}flash-success{% endif %}">{{ message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
+{% endwith %}
+<nav class="navbar">
+    <div class="navbar-left">
+        <a href="{{ url_for('admin') }}" class="navbar-brand"><i class="fas fa-cog"></i> Admin Panel</a>
+    </div>
+    <div class="navbar-center">
+        <!-- Navigation links -->
+        <a href="{{ url_for('home') }}" class="nav-item"><i class="fas fa-home"></i> Home</a>
+        <a href="{{ url_for('admin_books') }}" class="nav-item"><i class="fas fa-book"></i> Books</a>
+        <a href="{{ url_for('all_authors') }}" class="nav-item active"><i class="fas fa-users"></i> Authors</a>
+        <a href="{{ url_for('all_genres') }}" class="nav-item"><i class="fas fa-bookmark"></i> Genres</a>
+        <a href="{{ url_for('all_publishers') }}" class="nav-item"><i class="fas fa-building"></i> Publishers</a>
+        <!-- Add Author link -->
+        <a href="{{ url_for('add_author') }}" class="nav-item"><i class="fas fa-plus-circle"></i> Add Author</a>
+    </div>
+    <div class="navbar-right">
+        <a href="{{ url_for('logout') }}" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="admin-books">
+        <h2><i class="fas fa-plus-circle"></i> Add Author</h2>
+
+        <!-- Add Author Form -->
+        <div class="add-author-form">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="form-group">
+                    <label for="author_name" class="form-control-label">Author Name</label>
+                    <input type="text" id="author_name" name="author_name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="biography" class="form-control-label">Biography</label>
+                    <textarea id="biography" name="biography" class="form-control" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="birth_date" class="form-control-label">Birth Date</label>
+                    <input type="text" id="birth_date" name="birth_date" class="form-control datepicker" placeholder="YYYY-MM-DD" autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="nationality" class="form-control-label">Nationality</label>
+                    <input type="text" id="nationality" name="nationality" class="form-control">
+                </div>
+
+            </form>
+        </div>
+
+       
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+    // Initialize datepicker
+    $(document).ready(function() {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='my_profile.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <!-- Navbar -->
+    <div class="container-fluid gradient-background">
+        <div class="navigation-buttons">
+            <a href="{{ url_for('home') }}" class="btn-nav"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ url_for('logout') }}" class="btn-nav"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ url_for('my_profile', username=current_user.username, user_id=current_user.user_id) }}" class="btn-nav"><i class="fas fa-user"></i> Profile</a>
+        </div>
+        
+        <div class="orders-container">
+            <h1><i class="fas fa-user"></i> My Profile</h1>
+            {% if user %}
+                <div class="profile-container">
+                    <p><strong>Username:</strong> {{ user.username }}</p>
+                    <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Age:</strong> {{ user.age }}</p>
+                    <p><strong>Contact:</strong> {{ user.contact }}</p>
+                    <p><strong>Address:</strong> {{ user.address }}</p>
+                </div>
+                
+                <div class="profile-links">
+                    <a href="{{ url_for('edit_profile', username=user.username, user_id=user.user_id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit Profile</a>
+                    <a href="{{ url_for('edit_password', username=user.username, user_id=user.user_id) }}" class="btn btn-primary btn-sm"><i class="fas fa-key"></i> Edit Password</a>
+                    <a href="{{ url_for('my_cart', username=user.username, user_id=user.user_id) }}" class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart"></i> My Cart</a>
+                    <a href="{{ url_for('my_reviews', username=current_user.username, user_id=current_user.user_id) }}" class="btn btn-primary btn-sm"><i class="fas fa-star"></i> My Reviews</a>
+                    <a href="{{ url_for('orders', username=current_user.username, user_id=current_user.user_id) }}" class="btn btn-primary btn-sm"><i class="fas fa-box"></i> My Orders</a>
+                </div>
+            {% else %}
+                <p>User details not found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

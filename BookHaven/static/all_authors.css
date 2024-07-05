@@ -1,0 +1,152 @@
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #003366, #66ccff);
+    height: 100%;
+}
+
+.navbar {
+    background-color: #0056b3;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-center {
+    display: flex;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+.admin-books {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-books h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.authors-table {
+    width: 100%; /* Ensure table spans full width of container */
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; /* Fixed layout to prevent columns from squeezing */
+}
+
+.authors-table th,
+.authors-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap; /* Prevent wrapping of table cell content */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ellipsis for overflow text */
+}
+
+.authors-table th {
+    background-color: #0056b3;
+    color: white;
+    /* Adjusted width for table header */
+    width: auto; /* Allow browser to determine width */
+}
+
+.authors-table td {
+    background-color: #f9f9f9;
+}
+
+.authors-table td:first-child {
+    font-weight: bold;
+}
+
+.btn-view-details,
+.btn-edit {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-view-details:hover,
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.flash-messages {
+    margin-top: 20px;
+    padding: 10px;
+    list-style: none;
+}
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light text color */
+}
+
+.flash-success {
+    background-color: #27ae60;
+}
+
+.flash-error {
+    background-color: #c0392b;
+}
+
+.flash-danger {
+    background-color: #e74c3c;
+}
+
+.flash-warning {
+    background-color: #f39c12;
+}
+
+.flash-info {
+    background-color: #3498db;
+}
+

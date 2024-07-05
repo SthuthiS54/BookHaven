@@ -1,0 +1,96 @@
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.gradient-background {
+    background: linear-gradient(to bottom right, #003366, #66ccff); /* Dark blue to light blue gradient */
+    height: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.registration-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow for a card-like effect */
+    position: relative; /* To position the home button absolutely */
+}
+
+.home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.home-button a {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+}
+
+.home-button a:hover {
+    color: #65c6ec;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333; /* Dark text color */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #0056b3; /* Darker blue button */
+    border-color: #0056b3; /* Border color */
+}
+
+.btn-primary:hover {
+    background-color: #003d80; /* Darker blue on hover */
+    border-color: #003d80;
+}
+
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light text color */
+}
+
+.flash-success {
+    background-color: #27ae60;
+}
+
+.flash-error {
+    background-color: #c0392b;
+}
+
+.flash-danger {
+    background-color: #e74c3c;
+}
+
+.flash-warning {
+    background-color: #f39c12;
+}
+
+.flash-info {
+    background-color: #3498db;
+}

@@ -1,0 +1,49 @@
+<!-- book_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }} - Book Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='book_details.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li class="flash-message {% if 'error' in message|lower %}flash-error{% else %}flash-success{% endif %}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+    
+    <div class="book-details">
+        <h2>{{ book.title }}</h2>
+        <!-- Ensure correct image URL generation -->
+        {% if book.cover_image %}
+            <img src="{{ url_for('static', filename=book.cover_image.replace('\\', '/').replace('static/', '')) }}" alt="Book Cover">
+        {% else %}
+            <p>No cover image available.</p>
+        {% endif %}
+        <p><strong>Author:</strong> {{ book.author_name }}</p>
+        <p><strong>Genre:</strong> {{ book.genre_name }}</p>
+        <p><strong>Publisher:</strong> {{ book.publisher_name }}</p>
+        <p><strong>Publication Year:</strong> {{ book.publication_year }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+        <p><strong>Language:</strong> {{ book.language }}</p>
+        <p><strong>Price:</strong> ${{ book.price }}</p>
+        <p><strong>Stock:</strong> {{ book.stock }}</p>
+        <p><strong>Summary:</strong> {{ book.summary }}</p>
+        <p><strong>Avg Rating:</strong> {% if book.avg_rating %}{{ book.avg_rating }}{% else %}No ratings yet{% endif %}</p>
+        
+        <!-- Display reviews if available -->
+
+        
+        
+    </div>
+</body>
+</html>

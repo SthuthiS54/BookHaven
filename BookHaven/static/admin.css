@@ -1,0 +1,127 @@
+/* admin.css */
+
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #003366, #66ccff);
+}
+
+.navbar {
+    background-color: #0056b3;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-center {
+    display: flex;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+.admin-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.admin-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.admin-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.admin-option {
+    text-align: center;
+}
+
+.btn-admin {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-admin:hover {
+    background-color: #0056b3;
+}
+
+.btn-admin i {
+    margin-right: 8px;
+}
+
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light text color */
+}
+
+.flash-success {
+    background-color: #27ae60;
+}
+
+.flash-error {
+    background-color: #c0392b;
+}
+
+.flash-danger {
+    background-color: #e74c3c;
+}
+
+.flash-warning {
+    background-color: #f39c12;
+}
+
+.flash-info {
+    background-color: #3498db;
+}

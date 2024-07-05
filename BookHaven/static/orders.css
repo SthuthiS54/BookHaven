@@ -1,0 +1,183 @@
+/* orders.css */
+
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #003366, #66ccff);
+}
+
+.gradient-background {
+    background: linear-gradient(to bottom right, #003366, #66ccff); /* Dark blue to light blue gradient */
+    height: 100%;
+}
+
+.orders-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow for a card-like effect */
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333; /* Dark text color */
+    font-size: 28px; /* Increase the font size */
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.btn-nav {
+    text-decoration: none;
+    color: white;
+    background-color: #0056b3;
+    padding: 12px 24px; /* Increase button padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase button font size */
+    display: flex;
+    align-items: center;
+}
+
+.btn-nav i {
+    margin-right: 8px;
+}
+
+.btn-nav:hover {
+    background-color: #e1e8ef;
+}
+
+.orders-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.order-item {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); /* Light shadow for each item */
+}
+
+.order-item p {
+    margin-bottom: 10px;
+}
+
+.order-book-cover {
+    max-width: 100px; /* Adjust based on your design */
+    border-radius: 5px;
+}
+
+.btn-view-summary, .btn-cancel-order {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #007bff; /* Blue button color */
+    text-decoration: none;
+}
+
+.btn-view-summary:hover, .btn-cancel-order:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.btn-view-summary i, .btn-cancel-order i {
+    margin-right: 5px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    border: none; /* Remove all borders from table cells */
+}
+
+.btn {
+    margin-right: 8px;
+    padding: 10px 20px; /* Increase button padding */
+    font-size: 16px; /* Increase button font size */
+}
+
+.btn-sm {
+    padding: 8px 16px; /* Increase small button padding */
+    font-size: 14px; /* Increase small button font size */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red background for danger buttons */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light text color */
+}
+
+.flash-success {
+    background-color: #27ae60;
+}
+
+.flash-error {
+    background-color: #c0392b;
+}
+
+.flash-danger {
+    background-color: #e74c3c;
+}
+
+.flash-warning {
+    background-color: #f39c12;
+}
+
+.flash-info {
+    background-color: #3498db;
+}
+
+.card-body {
+    padding: 20px; /* Example padding */
+    width: 100%;
+    max-width: 1200px; /* Adjust max-width based on your design */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.card-title {
+    font-size: 1.2rem; /* Example title font size */
+    margin-bottom: 10px; /* Example margin bottom */
+    color: #333; /* Example title color */
+}
+
+.card-text {
+    font-size: 1rem; /* Example text font size */
+    margin-bottom: 5px; /* Example margin bottom */
+    color: #555; /* Example text color */
+}

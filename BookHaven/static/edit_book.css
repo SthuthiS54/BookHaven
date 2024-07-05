@@ -1,0 +1,140 @@
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #003366, #66ccff);
+    height: 100%;
+}
+
+.navbar {
+    background-color: #0056b3;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-center {
+    display: flex;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.nav-item.active {
+    font-weight: bold;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-control-file {
+    font-size: 16px;
+}
+
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light text color */
+}
+
+.flash-success {
+    background-color: #27ae60;
+}
+
+.flash-error {
+    background-color: #c0392b;
+}
+
+.flash-danger {
+    background-color: #e74c3c;
+}
+
+.flash-warning {
+    background-color: #f39c12;
+}
+
+.flash-info {
+    background-color: #3498db;
+}

@@ -1,0 +1,53 @@
+<!-- user_reviews.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reviews</title>
+    <!-- Add your CSS link if needed -->
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message flash-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    <div class="navbar">
+        <a href="{{ url_for('home') }}" class="navbar-brand">Bookstore</a>
+        <div class="navbar-center">
+            <a href="{{ url_for('user_profile') }}" class="nav-item">Profile</a>
+            <a href="{{ url_for('user_orders') }}" class="nav-item">Orders</a>
+            <a href="{{ url_for('user_carts') }}" class="nav-item">Carts</a>
+            <a href="{{ url_for('user_transactions') }}" class="nav-item">Transactions</a>
+            <a href="{{ url_for('edit_profile') }}" class="nav-item">Edit Profile</a>
+            <a href="{{ url_for('logout') }}" class="nav-item">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Your Reviews</h1>
+        
+        {% if reviews %}
+            <div class="reviews-list">
+                {% for review in reviews %}
+                    <div class="review-item">
+                        <h2>Review ID: {{ review.review_id }}</h2>
+                        <p>Book ID: {{ review.book_id }}</p>
+                        <p>Date: {{ review.review_date }}</p>
+                        <p>Content: {{ review.content }}</p>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No reviews found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

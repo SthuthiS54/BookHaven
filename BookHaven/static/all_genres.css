@@ -1,0 +1,132 @@
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #003366, #66ccff);
+    height: 100%;
+}
+
+.navbar {
+    background-color: #0056b3;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-center {
+    display: flex;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+.admin-books {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-books h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.genres-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.genres-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.genre-info {
+    padding-left: 20px;
+}
+
+.genre-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.genre-info p {
+    color: #666;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.flash-messages {
+    margin-top: 20px;
+    padding: 10px;
+    list-style: none;
+}
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light text color */
+}
+
+.flash-success {
+    background-color: #27ae60;
+}
+
+.flash-error {
+    background-color: #c0392b;
+}
+
+.flash-danger {
+    background-color: #e74c3c;
+}
+
+.flash-warning {
+    background-color: #f39c12;
+}
+
+.flash-info {
+    background-color: #3498db;
+}
+

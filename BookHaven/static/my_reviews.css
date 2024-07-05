@@ -1,0 +1,139 @@
+/* my_reviews.css */
+
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #003366, #66ccff);
+}
+
+.gradient-background {
+    background: linear-gradient(to bottom right, #003366, #66ccff); /* Dark blue to light blue gradient */
+    height: 100%;
+}
+
+.my-reviews-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow for a card-like effect */
+    margin: 20px auto;
+    width: 100%;
+    max-width: 800px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333; /* Dark text color */
+    font-size: 28px; /* Increase the font size */
+}
+
+.reviews-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-item {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); /* Light shadow for each item */
+    margin-bottom: 20px;
+}
+
+.review-item h3 {
+    margin-bottom: 10px;
+}
+
+.review-item p {
+    margin-bottom: 10px;
+    color: #555; /* Dark gray text color */
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.btn-nav {
+    text-decoration: none;
+    color: white;
+    background-color: #0056b3;
+    padding: 12px 24px; /* Increase button padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase button font size */
+    display: flex;
+    align-items: center;
+}
+
+.btn-nav i {
+    margin-right: 8px;
+}
+
+.btn-nav:hover {
+    background-color: #003d80;
+}
+
+
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light text color */
+}
+
+.flash-success {
+    background-color: #27ae60;
+}
+
+.flash-error {
+    background-color: #c0392b;
+}
+
+.flash-danger {
+    background-color: #e74c3c;
+}
+
+.flash-warning {
+    background-color: #f39c12;
+}
+
+.flash-info {
+    background-color: #3498db;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.btn-nav {
+    text-decoration: none;
+    color: white;
+    background-color: #0056b3;
+    padding: 12px 24px; /* Increase button padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase button font size */
+    display: flex;
+    align-items: center;
+}
+
+.btn-nav i {
+    margin-right: 8px;
+}
+
+.btn-nav:hover {
+    background-color: #fbfdff;
+}

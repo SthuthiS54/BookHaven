@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li class="flash-message {% if 'error' in message|lower %}flash-error{% else %}flash-success{% endif %}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="{{ url_for('admin') }}" class="navbar-brand"><i class="fas fa-user-cog"></i> Admin Panel</a>
+        </div>
+        <div class="navbar-center">
+            <a href="{{ url_for('home') }}" class="nav-item"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ url_for('admin_books') }}" class="nav-item"><i class="fas fa-book"></i> Books</a>
+            <a href="{{ url_for('all_authors') }}" class="nav-item"><i class="fas fa-users"></i> Authors</a>
+            <a href="{{ url_for('all_genres') }}" class="nav-item"><i class="fas fa-tags"></i> Genres</a>
+            <a href="{{ url_for('all_publishers') }}" class="nav-item"><i class="fas fa-building"></i> Publishers</a>
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('logout') }}" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
+
+    <!-- Admin Section -->
+    <div class="admin-section">
+        <h2>Welcome to Admin Panel</h2>
+        <div class="admin-options">
+            <div class="admin-option">
+                <a href="{{ url_for('add_genre') }}" class="btn-admin"><i class="fas fa-plus"></i> Insert Genre</a>
+            </div>
+            <div class="admin-option">
+                <a href="{{ url_for('add_book') }}" class="btn-admin"><i class="fas fa-plus"></i> Insert Book</a>
+            </div>
+            <div class="admin-option">
+                <a href="{{ url_for('add_author') }}" class="btn-admin"><i class="fas fa-plus"></i> Insert Author</a>
+            </div>
+            <div class="admin-option">
+                <a href="{{ url_for('add_publisher') }}" class="btn-admin"><i class="fas fa-plus"></i> Insert Publisher</a>
+            </div>
+            <div class="admin-option">
+                <a href="{{ url_for('update_order_status') }}" class="btn-admin"><i class="fas fa-pencil-alt"></i> Update Order Status</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your additional sections or content here -->
+
+</body>
+</html>

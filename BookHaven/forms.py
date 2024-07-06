@@ -38,18 +38,17 @@ class BookForm(FlaskForm):
 
 
 class EditBookForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired(), Length(max=255)])
+    title = StringField('Title', validators=[DataRequired()])
     author_id = SelectField('Author', coerce=int, validators=[DataRequired()])
     isbn = StringField('ISBN', validators=[Length(max=20)])
     publisher_id = SelectField('Publisher', coerce=int, validators=[DataRequired()])
-    publication_year = IntegerField('Publication Year')
+    publication_year = IntegerField('Publication Year', validators=[DataRequired()])
     genre_id = SelectField('Genre', coerce=int, validators=[DataRequired()])
-    summary = TextAreaField('Summary')
+    summary = TextAreaField('Summary', validators=[DataRequired()])
     language = StringField('Language', validators=[Length(max=50)])
-    price = DecimalField('Price', places=2)
-    stock = IntegerField('Stock')
+    price = DecimalField('Price', places=2, validators=[DataRequired()])
+    stock = IntegerField('Stock', validators=[DataRequired()])
     cover_image = FileField('Cover Image')
-
 
 
 

@@ -1,0 +1,10 @@
+Flask
+Flask-Login
+SQLAlchemy
+Werkzeug
+WTForms
+mysql-connector-python
+textblob
+flask-wtf
+pymysql
+email-validator
